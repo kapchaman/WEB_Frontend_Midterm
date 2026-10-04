@@ -1,3 +1,6 @@
-Midterm_Project_tmp.pdf
 .DS_Store
-Thumbs.db
+screenshots/
+*.docx
+~$*.docx
+generate_team_report.py
+__pycache__/

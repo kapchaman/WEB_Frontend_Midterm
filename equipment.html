@@ -1,19 +1,29 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Equipment page metadata: the title helps users and browser tabs identify the page. -->
+  <!-- Equipment page metadata -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Compare microphones, audio interfaces and software rentals at Neon Tape Studio.">
-  <title>Equipment | Neon Tape Studio</title>
+  <meta name="description" content="Compare studio microphones, analog preamps, DSP audio interfaces and software DAWs at Neon Tape Studio.">
+  <title>Equipment &amp; Hardware Vault | Neon Tape Studio</title>
+  
+  <!-- Google Fonts: Space Grotesk & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- One shared custom stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Shared navigation: repeated manually to meet the static-site requirement. -->
+
+  <!-- Shared navigation -->
   <header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
       <div class="container">
@@ -37,101 +47,245 @@
   </header>
 
   <main>
-    <!-- Page hero summarizes what the comparison table is for. -->
+    <!-- Page hero -->
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Gear library</p>
-        <h1>Choose the right tool before the red light turns on.</h1>
-        <p class="page-intro">The table compares common recording tools by category, character and rental price.</p>
+        <p class="eyebrow"><i class="bi bi-cpu-fill me-1"></i> Studio Hardware &amp; Vault</p>
+        <h1>Precision gear before the red light turns on.</h1>
+        <p class="page-intro">
+          Explore our handpicked collection of class-A tube preamps, precision microphones, and real-time DSP interfaces calibrated for modern indie records.
+        </p>
+
+        <!-- Category Filter Pills (Interactive JS Filter) -->
+        <div class="filter-toolbar mt-4 d-flex gap-2 flex-wrap" role="toolbar" aria-label="Equipment filter categories">
+          <button type="button" class="btn btn-sm btn-filter active" onclick="filterGear('all', this)"><i class="bi bi-grid-fill me-1"></i> All Gear</button>
+          <button type="button" class="btn btn-sm btn-filter" onclick="filterGear('mic', this)"><i class="bi bi-mic-fill me-1"></i> Microphones</button>
+          <button type="button" class="btn btn-sm btn-filter" onclick="filterGear('interface', this)"><i class="bi bi-usb-symbol me-1"></i> Interfaces &amp; DSP</button>
+          <button type="button" class="btn btn-sm btn-filter" onclick="filterGear('outboard', this)"><i class="bi bi-sliders me-1"></i> Outboard &amp; Pres</button>
+          <button type="button" class="btn btn-sm btn-filter" onclick="filterGear('monitors', this)"><i class="bi bi-speaker-fill me-1"></i> Monitoring</button>
+          <button type="button" class="btn btn-sm btn-filter" onclick="filterGear('daw', this)"><i class="bi bi-laptop me-1"></i> DAWs &amp; Plugins</button>
+        </div>
       </div>
     </section>
 
-    <!-- Table section: semantic table is required and fits equipment comparison naturally. -->
+    <!-- Equipment Table Section (Semantic HTML5 Table) -->
     <section class="section-block">
       <div class="container">
         <div class="table-card">
           <div class="table-responsive">
-            <table class="table equipment-table align-middle">
-              <caption>Studio equipment rental options for vocal and production sessions.</caption>
+            <table class="table equipment-table align-middle" id="gearTable">
+              <caption>Comprehensive studio equipment roster available for in-house tracking and rental.</caption>
               <thead>
                 <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Main characteristics</th>
-                  <th scope="col">Best for</th>
-                  <th scope="col">Rental price</th>
+                  <th scope="col" style="width: 14%;">Category</th>
+                  <th scope="col" style="width: 22%;">Model Name</th>
+                  <th scope="col" style="width: 30%;">Technical Specs &amp; Tone</th>
+                  <th scope="col" style="width: 18%;">Ideal Application</th>
+                  <th scope="col" style="width: 16%;">Session Rate</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">Microphone</th>
-                  <td>Aurora C-87 Condenser</td>
-                  <td>Warm midrange, cardioid pattern, pop-filter included</td>
-                  <td>Lead vocals and acoustic guitar</td>
-                  <td>8 000 KZT / hour</td>
+                <!-- Row 1: Mic -->
+                <tr data-category="mic">
+                  <th scope="row"><span class="badge badge-neon">Microphone</span></th>
+                  <td class="fw-bold text-white">Aurora C-87 Large Condenser</td>
+                  <td>Dual gold-sputtered diaphragm, switchable cardioid/omni, 7 dB-A ultra-low self noise.</td>
+                  <td>Lead pop vocals &amp; acoustic instruments</td>
+                  <td><span class="text-cyan fw-bold">8,000 ₸</span> / hr</td>
                 </tr>
-                <tr>
-                  <th scope="row">Microphone</th>
-                  <td>Pulse SM-7 Dynamic</td>
-                  <td>High rejection, smooth highs, handles loud voices</td>
-                  <td>Rap vocals and podcasts</td>
-                  <td>6 500 KZT / hour</td>
+
+                <!-- Row 2: Mic -->
+                <tr data-category="mic">
+                  <th scope="row"><span class="badge badge-neon">Microphone</span></th>
+                  <td class="fw-bold text-white">Pulse SM-7 Dynamic Broadcast</td>
+                  <td>Cardioid pattern, internal air-suspension shock isolation, electromagnetic hum shielding.</td>
+                  <td>Aggressive rap vocals &amp; spoken word</td>
+                  <td><span class="text-cyan fw-bold">6,500 ₸</span> / hr</td>
                 </tr>
-                <tr>
-                  <th scope="row">Audio Interface</th>
-                  <td>Focusrite Scarlett 4i4</td>
-                  <td>4 inputs, low latency, clean preamps</td>
-                  <td>Small bands and vocal overdubs</td>
-                  <td>5 000 KZT / hour</td>
+
+                <!-- Row 3: Mic -->
+                <tr data-category="mic">
+                  <th scope="row"><span class="badge badge-neon">Microphone</span></th>
+                  <td class="fw-bold text-white">Royer R-121 Figure-8 Ribbon</td>
+                  <td>High-SPL passive ribbon transducer, flat frequency response, smooth velvety top end.</td>
+                  <td>Electric guitar cabs &amp; brass brass</td>
+                  <td><span class="text-cyan fw-bold">9,500 ₸</span> / hr</td>
                 </tr>
-                <tr>
-                  <th scope="row">Audio Interface</th>
-                  <td>Universal Audio Apollo Twin</td>
-                  <td>Premium conversion, DSP effects, two Unison preamps</td>
-                  <td>Professional vocal chain</td>
-                  <td>9 000 KZT / hour</td>
+
+                <!-- Row 4: Interface -->
+                <tr data-category="interface">
+                  <th scope="row"><span class="badge badge-violet">Interface &amp; DSP</span></th>
+                  <td class="fw-bold text-white">Universal Audio Apollo Twin X</td>
+                  <td>Elite-class 24-bit/192kHz A/D conversion, dual Unison preamps, real-time UAD DUO DSP core.</td>
+                  <td>Zero-latency tracking with classic emulations</td>
+                  <td><span class="text-violet fw-bold">9,000 ₸</span> / hr</td>
                 </tr>
-                <tr>
-                  <th scope="row">Software</th>
-                  <td>Ableton Live Suite</td>
-                  <td>Session view, instruments, sampling and live looping</td>
-                  <td>Beat production and electronic music</td>
-                  <td>4 000 KZT / hour</td>
+
+                <!-- Row 5: Interface -->
+                <tr data-category="interface">
+                  <th scope="row"><span class="badge badge-violet">Interface &amp; DSP</span></th>
+                  <td class="fw-bold text-white">Focusrite Scarlett 4i4 Gen 4</td>
+                  <td>4 Inputs / 4 Outputs, 120 dB dynamic range, Air Mode with harmonic presence saturation.</td>
+                  <td>Multi-synth tracking &amp; stereo overheads</td>
+                  <td><span class="text-violet fw-bold">5,000 ₸</span> / hr</td>
                 </tr>
-                <tr>
-                  <th scope="row">Software</th>
-                  <td>Logic Pro Vocal Suite</td>
-                  <td>Comping, pitch tools, channel strips and reverbs</td>
-                  <td>Pop vocal editing and mixing</td>
-                  <td>3 500 KZT / hour</td>
+
+                <!-- Row 6: Outboard -->
+                <tr data-category="outboard">
+                  <th scope="row"><span class="badge badge-pink">Outboard Pre</span></th>
+                  <td class="fw-bold text-white">Warm WA-73 British Preamp/EQ</td>
+                  <td>Discrete Carnhill transformer-balanced circuit, 80dB of gain, musical inductor EQ.</td>
+                  <td>Warm vintage vocal character &amp; punch</td>
+                  <td><span class="text-pink fw-bold">7,500 ₸</span> / hr</td>
+                </tr>
+
+                <!-- Row 7: Outboard -->
+                <tr data-category="outboard">
+                  <th scope="row"><span class="badge badge-pink">Outboard Dynamics</span></th>
+                  <td class="fw-bold text-white">Optical Tube Leveler (CL-1B style)</td>
+                  <td>Electro-optical attenuator, all-tube push-pull gain amplifier, velvety transparent leveling.</td>
+                  <td>Vocal dynamic glue before digital AD</td>
+                  <td><span class="text-pink fw-bold">11,000 ₸</span> / hr</td>
+                </tr>
+
+                <!-- Row 8: Monitoring -->
+                <tr data-category="monitors">
+                  <th scope="row"><span class="badge bg-secondary">Monitoring</span></th>
+                  <td class="fw-bold text-white">Yamaha HS8 Active Nearfields</td>
+                  <td>Bi-amplified 8" cone woofer, 1" dome tweeter, 120W total output, room-control trim.</td>
+                  <td>Reference mixing &amp; sub-low end balance</td>
+                  <td><span class="text-white fw-bold">Included</span></td>
+                </tr>
+
+                <!-- Row 9: Monitoring -->
+                <tr data-category="monitors">
+                  <th scope="row"><span class="badge bg-secondary">Monitoring</span></th>
+                  <td class="fw-bold text-white">Sennheiser HD 650 Open-Back</td>
+                  <td>Acoustically open design, neodymium magnet systems, balanced stereo spatial imaging.</td>
+                  <td>Precision frequency &amp; reverb decay checks</td>
+                  <td><span class="text-white fw-bold">Included</span></td>
+                </tr>
+
+                <!-- Row 10: DAW -->
+                <tr data-category="daw">
+                  <th scope="row"><span class="badge badge-success">DAW &amp; Plugins</span></th>
+                  <td class="fw-bold text-white">Ableton Live 12 Suite</td>
+                  <td>Wavetable synths, Push 3 integration, Max for Live instruments, clip-launch sequencing.</td>
+                  <td>Electronic production &amp; beatmaking</td>
+                  <td><span class="text-success fw-bold">4,000 ₸</span> / hr</td>
+                </tr>
+
+                <!-- Row 11: DAW -->
+                <tr data-category="daw">
+                  <th scope="row"><span class="badge badge-success">DAW &amp; Plugins</span></th>
+                  <td class="fw-bold text-white">FabFilter Total Mastering Bundle</td>
+                  <td>Pro-Q 3 linear phase EQ, Pro-C 2 multi-style compressor, Pro-L 2 true peak limiter.</td>
+                  <td>Surgical mixing &amp; streaming-ready masters</td>
+                  <td><span class="text-success fw-bold">3,500 ₸</span> / hr</td>
                 </tr>
               </tbody>
+              <tfoot>
+                <tr>
+                  <th scope="row" colspan="2">Studio Vault Assurance</th>
+                  <td colspan="3" class="small text-muted">
+                    <i class="bi bi-shield-check text-cyan me-1"></i> All microphones stored in temperature &amp; humidity-controlled flight cases. Tested for noise-floor calibration weekly.
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>
 
-        <!-- Supporting cards use Flexbox to show package suggestions under the table. -->
-        <div class="gear-packages">
-          <article>
-            <h2>Vocal Starter Pack</h2>
-            <p>Aurora C-87, Scarlett 4i4 and Logic Pro tools for clean singer-songwriter sessions.</p>
-          </article>
-          <article>
-            <h2>Beat Lab Pack</h2>
-            <p>Apollo Twin and Ableton Live for producers who need fast sound design and low latency.</p>
-          </article>
+        <!-- Curated Session Packages (Flexbox Grid) -->
+        <div class="section-heading mt-5 mb-3">
+          <p class="eyebrow">Production Bundles</p>
+          <h2>Recommended studio gear pairings.</h2>
         </div>
+
+        <div class="row g-4 gear-bundles">
+          
+          <div class="col-12 col-md-4">
+            <article class="p-4 rounded-3 h-100 border border-secondary bg-surface d-flex flex-column">
+              <span class="badge bg-dark border border-cyan text-cyan w-fit mb-3">Vocal Soloist Pack</span>
+              <h3 class="fw-bold text-white mb-2">Vocal Tracking Suite</h3>
+              <p class="small text-muted mb-4 flex-grow-1">
+                Aurora C-87 Large Condenser into Apollo Twin X Unison Neve 1073 preamp and CL-1B optical compression.
+              </p>
+              <div class="border-top border-secondary pt-3 mt-auto">
+                <span class="fs-5 fw-bold text-cyan">15,000 ₸</span> <small class="text-muted">/ hour (Includes Engineer)</small>
+                <a href="booking.html" class="btn btn-sm btn-neon w-100 mt-3">Book Vocal Pack</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="p-4 rounded-3 h-100 border border-secondary bg-surface d-flex flex-column">
+              <span class="badge bg-dark border border-violet text-violet w-fit mb-3">Producer Suite</span>
+              <h3 class="fw-bold text-white mb-2">Beat Lab &amp; Synth Hub</h3>
+              <p class="small text-muted mb-4 flex-grow-1">
+                Ableton Live 12 Suite, Apollo Twin DSP, Yamaha HS8 monitoring, and vintage ribbon mics for live percussion.
+              </p>
+              <div class="border-top border-secondary pt-3 mt-auto">
+                <span class="fs-5 fw-bold text-violet">12,500 ₸</span> <small class="text-muted">/ hour (Creative Session)</small>
+                <a href="booking.html" class="btn btn-sm btn-ghost w-100 mt-3">Book Beat Lab</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="p-4 rounded-3 h-100 border border-secondary bg-surface d-flex flex-column">
+              <span class="badge bg-dark border border-pink text-pink w-fit mb-3">Full Master Suite</span>
+              <h3 class="fw-bold text-white mb-2">Analog Stem Master</h3>
+              <p class="small text-muted mb-4 flex-grow-1">
+                FabFilter Pro bundle, analog summing bus, Sennheiser HD650 open-back checks, and target LUFS loudness optimization.
+              </p>
+              <div class="border-top border-secondary pt-3 mt-auto">
+                <span class="fs-5 fw-bold text-pink">18,000 ₸</span> <small class="text-muted">/ per finished track</small>
+                <a href="booking.html" class="btn btn-sm btn-ghost w-100 mt-3">Book Mastering</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
       </div>
     </section>
   </main>
 
+  <!-- Shared Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <p><strong>Neon Tape Studio</strong> - indie recording workflow project.</p>
-      <p>Fonts: Google Fonts. Framework: Bootstrap 5.3. Code and visuals created from scratch.</p>
+      <div>
+        <p><strong>Neon Tape Studio</strong> &bull; Indie Recording &amp; Song Production Ecosystem.</p>
+        <p class="small text-muted">Midterm Project &bull; Web Technologies 1 &bull; Astana IT University.</p>
+      </div>
+      <div class="text-md-end">
+        <p class="small">Team: <strong>Alikhan Shikhiyev</strong> &amp; <strong>Abay Amirzhanuly</strong> (IT-2510)</p>
+        <p class="small text-muted">Pages authored by Abay: Workflow &amp; Equipment.</p>
+      </div>
     </div>
   </footer>
 
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Interactive Category Filter Script -->
+  <script>
+    function filterGear(category, btnElement) {
+      // Update active button state
+      document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      // Filter table rows
+      const rows = document.querySelectorAll('#gearTable tbody tr');
+      rows.forEach(row => {
+        if (category === 'all' || row.getAttribute('data-category') === category) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>

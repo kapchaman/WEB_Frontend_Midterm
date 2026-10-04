@@ -1,4 +1,4 @@
-﻿/* =========================
+/* =========================
    Global Design System
    ========================= */
 
@@ -547,4 +547,153 @@ h3 {
   .container {
     max-width: 1160px;
   }
+}
+
+/* ==========================================================================
+   Abay's Additions: Signal Flow, Gear Filters, Accordion & Badges
+   ========================================================================== */
+
+.w-fit {
+  width: fit-content;
+}
+
+.bg-surface {
+  background: var(--surface) !important;
+}
+
+/* Signal Chain Flow Bar */
+.signal-flow-bar {
+  background: rgba(17, 18, 26, 0.85);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  gap: 0.5rem;
+}
+
+.signal-node {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+}
+
+.signal-node.active {
+  color: #07070b;
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(36, 246, 255, 0.4);
+}
+
+.signal-arrow {
+  color: var(--pink);
+  font-weight: bold;
+}
+
+/* Workflow Checklist */
+.workflow-checklist li {
+  margin-bottom: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+
+.text-cyan {
+  color: var(--cyan) !important;
+}
+
+.text-violet {
+  color: var(--violet) !important;
+}
+
+.text-pink {
+  color: var(--pink) !important;
+}
+
+/* Gear Category Filter Toolbar */
+.btn-filter {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+  color: var(--text);
+  border-color: rgba(36, 246, 255, 0.5);
+  background: rgba(36, 246, 255, 0.08);
+}
+
+.btn-filter.active {
+  color: #07070b;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  border-color: transparent;
+  box-shadow: 0 0 14px rgba(36, 246, 255, 0.35);
+}
+
+/* Badges */
+.badge-neon {
+  background: rgba(36, 246, 255, 0.12);
+  color: var(--cyan);
+  border: 1px solid rgba(36, 246, 255, 0.4);
+}
+
+.badge-violet {
+  background: rgba(155, 92, 255, 0.15);
+  color: var(--violet);
+  border: 1px solid rgba(155, 92, 255, 0.4);
+}
+
+.badge-pink {
+  background: rgba(255, 79, 216, 0.15);
+  color: var(--pink);
+  border: 1px solid rgba(255, 79, 216, 0.4);
+}
+
+.badge-success {
+  background: rgba(124, 255, 196, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(124, 255, 196, 0.4);
+}
+
+/* Custom Dark Accordion */
+.custom-dark-accordion .accordion-item {
+  background: rgba(17, 18, 26, 0.7);
+  border: 1px solid var(--line);
+  border-radius: var(--radius) !important;
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+}
+
+.custom-dark-accordion .accordion-button {
+  background: transparent;
+  color: var(--text);
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 1.05rem;
+  box-shadow: none;
+  padding: 1.2rem 1.4rem;
+}
+
+.custom-dark-accordion .accordion-button:not(.collapsed) {
+  color: var(--cyan);
+  background: rgba(36, 246, 255, 0.06);
+  border-bottom: 1px solid var(--line);
+}
+
+.custom-dark-accordion .accordion-button::after {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.custom-dark-accordion .accordion-body {
+  color: var(--muted);
+  line-height: 1.7;
+  padding: 1.2rem 1.4rem;
+  font-size: 0.95rem;
 }
