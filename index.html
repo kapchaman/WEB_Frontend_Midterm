@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <!-- Basic document metadata: UTF-8 supports all common symbols, viewport enables responsive layout. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neon Tape Studio helps indie artists plan, record, mix and release original music.">
+  <title>Neon Tape Studio | Indie Recording Workflow</title>
+
+  <!-- Google Fonts: Space Grotesk is used for headings, Inter is used for readable body text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 is required by the assignment. We use its grid, navbar, buttons and utility classes. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- One shared custom stylesheet keeps the same visual language on all four pages. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared header: the same navigation appears on every page for consistent user experience. -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand brand-mark" href="index.html" aria-label="Neon Tape Studio home">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span>Neon Tape</span>
+        </a>
+
+        <!-- Bootstrap navbar toggler provides accessible mobile navigation without custom JavaScript. -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="workflow.html">Workflow</a></li>
+            <li class="nav-item"><a class="nav-link" href="equipment.html">Equipment</a></li>
+            <li class="nav-item"><a class="nav-link nav-cta" href="booking.html">Book Time</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section: first impression of the studio, with a clear call to action and visual identity. -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <p class="eyebrow">Indie recording studio + song-building guide</p>
+            <h1>Build a track from first idea to final master.</h1>
+            <p class="hero-text">
+              Neon Tape is a dark-room studio for new artists who want more than a recording slot:
+              we help shape demos, choose sounds, record clean takes and finish release-ready mixes.
+            </p>
+            <div class="hero-actions d-flex flex-column flex-sm-row gap-3">
+              <a class="btn btn-neon btn-lg" href="workflow.html">Explore the workflow</a>
+              <a class="btn btn-ghost btn-lg" href="booking.html">Reserve a session</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <!-- Custom visual asset built with HTML/CSS, representing a studio mixer and audio waveform. -->
+            <div class="studio-console" aria-label="Stylized audio mixer illustration">
+              <div class="console-top">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="waveform" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
+              <div class="fader-grid" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="console-label">Live signal: demo becomes master</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy section: semantic article text explains the idea behind the project. -->
+    <section class="section-block">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <p class="eyebrow">Studio philosophy</p>
+            <h2>Small room, serious sound, honest decisions.</h2>
+          </div>
+          <div class="col-lg-7">
+            <p class="lead-copy">
+              Great indie records are not created by expensive gear alone. They come from clear musical choices:
+              a strong hook, an arrangement that leaves space, confident performances and mixing that supports
+              emotion instead of hiding it.
+            </p>
+            <p>
+              Our process is intentionally transparent. Artists can see the route from a phone voice memo to a
+              finished track, so every creative choice can be explained during the university project defense.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits section: Bootstrap grid plus custom cards demonstrate styled Bootstrap-based layout. -->
+    <section class="section-block section-muted">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why artists choose us</p>
+          <h2>A workflow designed for independent musicians.</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="feature-card">
+              <span class="feature-number">01</span>
+              <h3>Guided pre-production</h3>
+              <p>We turn rough ideas into a practical map: tempo, key, reference tracks and arrangement notes.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="feature-card">
+              <span class="feature-number">02</span>
+              <h3>Clean recording chain</h3>
+              <p>Vocal booths, microphones and interfaces are selected for the artist instead of used randomly.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="feature-card">
+              <span class="feature-number">03</span>
+              <h3>Release-ready finish</h3>
+              <p>Mixing and mastering focus on streaming loudness, translation and emotional impact.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer: credits are included because the PDF allows fonts/icons/assets when credited. -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p><strong>Neon Tape Studio</strong> - indie recording workflow project.</p>
+      <p>Fonts: Google Fonts. Framework: Bootstrap 5.3. Code and visuals created from scratch.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS is needed only for the mobile navbar collapse component. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

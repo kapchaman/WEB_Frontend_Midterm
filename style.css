@@ -1,0 +1,550 @@
+﻿/* =========================
+   Global Design System
+   ========================= */
+
+/* CSS variables make the color palette reusable and easy to explain during defense. */
+:root {
+  --bg: #07070b;
+  --surface: #11121a;
+  --surface-soft: #171925;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f4f7fb;
+  --muted: #a8b0c2;
+  --cyan: #24f6ff;
+  --violet: #9b5cff;
+  --pink: #ff4fd8;
+  --success: #7cffc4;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  --radius: 8px;
+}
+
+/* Border-box prevents padding and borders from causing unexpected horizontal overflow. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text);
+  font-family: "Inter", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(36, 246, 255, 0.18), transparent 28rem),
+    radial-gradient(circle at 85% 0%, rgba(155, 92, 255, 0.16), transparent 30rem),
+    var(--bg);
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand {
+  font-family: "Space Grotesk", Arial, sans-serif;
+}
+
+h1 {
+  font-size: clamp(2.45rem, 6vw, 5.35rem);
+  line-height: 0.96;
+  max-width: 920px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+h3 {
+  font-size: 1.18rem;
+}
+
+/* =========================
+   Shared Header and Footer
+   ========================= */
+
+/* Sticky translucent header creates a modern studio-app feeling and keeps navigation available. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7, 7, 11, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.navbar {
+  padding: 1rem 0;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Small animated-looking brand symbol made from CSS instead of an image template. */
+.brand-icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid rgba(36, 246, 255, 0.55);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 42%, var(--cyan) 42% 48%, transparent 48% 52%, var(--pink) 52% 58%, transparent 58%),
+    radial-gradient(circle, rgba(155, 92, 255, 0.6), rgba(36, 246, 255, 0.08));
+  box-shadow: 0 0 26px rgba(36, 246, 255, 0.35);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--muted);
+  font-weight: 700;
+  padding-inline: 0.9rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--text);
+  text-shadow: 0 0 18px rgba(36, 246, 255, 0.45);
+}
+
+/* CTA link customizes Bootstrap nav styling so it does not look default. */
+.nav-cta {
+  margin-left: 0.4rem;
+  border: 1px solid rgba(36, 246, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(36, 246, 255, 0.08);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+  background: #050509;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-grid p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Reusable Components
+   ========================= */
+
+.section-block {
+  padding: 5.5rem 0;
+}
+
+.section-muted {
+  background: rgba(255, 255, 255, 0.03);
+  border-block: 1px solid var(--line);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 2.25rem;
+}
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lead-copy,
+.hero-text,
+.page-intro {
+  font-size: 1.12rem;
+}
+
+/* Buttons start from Bootstrap classes but receive a custom neon identity here. */
+.btn-neon,
+.btn-ghost {
+  border-radius: 999px;
+  font-weight: 800;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.btn-neon {
+  border: 0;
+  color: #050509;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  box-shadow: 0 16px 40px rgba(36, 246, 255, 0.18);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-neon:hover,
+.btn-ghost:hover {
+  transform: translateY(-3px);
+  border-color: rgba(36, 246, 255, 0.75);
+  box-shadow: 0 20px 48px rgba(155, 92, 255, 0.28);
+}
+
+/* =========================
+   Home Page
+   ========================= */
+
+.hero-section {
+  min-height: calc(100vh - 74px);
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 4rem;
+}
+
+.hero-text {
+  max-width: 680px;
+  margin: 1.5rem 0 2rem;
+}
+
+/* Studio console is the memorable visual solution: a custom CSS illustration, not a template. */
+.studio-console {
+  position: relative;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    #10121b;
+  box-shadow: var(--shadow), inset 0 0 0 1px rgba(36, 246, 255, 0.08);
+}
+
+.console-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.console-top span {
+  height: 4.2rem;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(36, 246, 255, 0.3), rgba(155, 92, 255, 0.08)),
+    repeating-linear-gradient(90deg, transparent 0 12px, rgba(255, 255, 255, 0.1) 12px 13px);
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 9rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.waveform i {
+  width: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--cyan), var(--pink));
+  box-shadow: 0 0 24px rgba(36, 246, 255, 0.42);
+}
+
+/* Different heights make the static waveform feel musical and less repetitive. */
+.waveform i:nth-child(1) { height: 3rem; }
+.waveform i:nth-child(2) { height: 6rem; }
+.waveform i:nth-child(3) { height: 4.5rem; }
+.waveform i:nth-child(4) { height: 7.5rem; }
+.waveform i:nth-child(5) { height: 5rem; }
+.waveform i:nth-child(6) { height: 8rem; }
+.waveform i:nth-child(7) { height: 4rem; }
+.waveform i:nth-child(8) { height: 6.5rem; }
+
+.fader-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.7rem;
+}
+
+.fader-grid span {
+  height: 8rem;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, transparent 15%, rgba(255, 255, 255, 0.14) 15% 85%, transparent 85%),
+    radial-gradient(circle at center 62%, var(--cyan) 0 0.45rem, transparent 0.5rem);
+}
+
+.console-label {
+  margin: 1rem 0 0;
+  color: var(--success);
+  font-weight: 800;
+}
+
+.feature-card,
+.workflow-card,
+.booking-form,
+.booking-panel,
+.table-card,
+.gear-packages article {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.24);
+}
+
+.feature-card {
+  min-height: 100%;
+  padding: 1.5rem;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(36, 246, 255, 0.6);
+}
+
+.feature-number {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--pink);
+  font-weight: 800;
+}
+
+/* =========================
+   Inner Page Hero
+   ========================= */
+
+.page-hero {
+  padding: 6rem 0 3.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-intro {
+  max-width: 720px;
+  margin-top: 1.25rem;
+}
+
+/* =========================
+   Workflow Page
+   ========================= */
+
+/* CSS Grid creates a responsive timeline without changing HTML order. */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.workflow-card {
+  grid-column: span 3;
+  padding: 1.5rem;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.workflow-card-wide {
+  grid-column: span 6;
+}
+
+.workflow-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155, 92, 255, 0.7);
+}
+
+.step-tag {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(36, 246, 255, 0.38);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.workflow-card ul,
+.booking-panel ul {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* =========================
+   Equipment Page
+   ========================= */
+
+.table-card {
+  padding: 1rem;
+}
+
+.equipment-table {
+  margin: 0;
+  color: var(--text);
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-border-color: rgba(255, 255, 255, 0.12);
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.04);
+}
+
+.equipment-table caption {
+  caption-side: top;
+  color: var(--muted);
+  padding: 0 0 1rem;
+}
+
+.equipment-table thead th {
+  color: var(--cyan);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.equipment-table tbody tr:hover {
+  background: rgba(36, 246, 255, 0.06);
+}
+
+.gear-packages {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.gear-packages article {
+  flex: 1;
+  padding: 1.4rem;
+}
+
+/* =========================
+   Booking Page
+   ========================= */
+
+.booking-form,
+.booking-panel {
+  padding: 1.5rem;
+}
+
+.form-label {
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Bootstrap form fields are restyled to match the neon studio palette. */
+.form-control,
+.form-select {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--cyan);
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.36);
+  box-shadow: 0 0 0 0.25rem rgba(36, 246, 255, 0.12);
+}
+
+.form-control::placeholder {
+  color: rgba(168, 176, 194, 0.72);
+}
+
+.booking-panel {
+  position: sticky;
+  top: 6.5rem;
+}
+
+/* =========================
+   Custom Media Queries
+   ========================= */
+
+/* Tablet breakpoint: reduces spacing and keeps cards readable at 768px. */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding-top: 1rem;
+  }
+
+  .nav-cta {
+    display: inline-block;
+    margin: 0.4rem 0 0;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 4rem;
+  }
+
+  .workflow-card,
+  .workflow-card-wide {
+    grid-column: span 6;
+  }
+
+  .booking-panel {
+    position: static;
+  }
+}
+
+/* Mobile breakpoint: tuned for 375px screens with no horizontal scrolling. */
+@media (max-width: 575.98px) {
+  .section-block {
+    padding: 3.5rem 0;
+  }
+
+  .page-hero {
+    padding: 4rem 0 2.5rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .console-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fader-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gear-packages,
+  .footer-grid {
+    flex-direction: column;
+  }
+
+  .booking-form,
+  .booking-panel,
+  .workflow-card,
+  .feature-card {
+    padding: 1.15rem;
+  }
+}
+
+/* Wide desktop breakpoint: keeps long lines elegant at 1280px and larger. */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1160px;
+  }
+}

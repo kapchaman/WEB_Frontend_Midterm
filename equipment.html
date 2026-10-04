@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <!-- Equipment page metadata: the title helps users and browser tabs identify the page. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare microphones, audio interfaces and software rentals at Neon Tape Studio.">
+  <title>Equipment | Neon Tape Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared navigation: repeated manually to meet the static-site requirement. -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand brand-mark" href="index.html">
+          <span class="brand-icon" aria-hidden="true"></span>
+          <span>Neon Tape</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="workflow.html">Workflow</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="equipment.html">Equipment</a></li>
+            <li class="nav-item"><a class="nav-link nav-cta" href="booking.html">Book Time</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Page hero summarizes what the comparison table is for. -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Gear library</p>
+        <h1>Choose the right tool before the red light turns on.</h1>
+        <p class="page-intro">The table compares common recording tools by category, character and rental price.</p>
+      </div>
+    </section>
+
+    <!-- Table section: semantic table is required and fits equipment comparison naturally. -->
+    <section class="section-block">
+      <div class="container">
+        <div class="table-card">
+          <div class="table-responsive">
+            <table class="table equipment-table align-middle">
+              <caption>Studio equipment rental options for vocal and production sessions.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Main characteristics</th>
+                  <th scope="col">Best for</th>
+                  <th scope="col">Rental price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Microphone</th>
+                  <td>Aurora C-87 Condenser</td>
+                  <td>Warm midrange, cardioid pattern, pop-filter included</td>
+                  <td>Lead vocals and acoustic guitar</td>
+                  <td>8 000 KZT / hour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Microphone</th>
+                  <td>Pulse SM-7 Dynamic</td>
+                  <td>High rejection, smooth highs, handles loud voices</td>
+                  <td>Rap vocals and podcasts</td>
+                  <td>6 500 KZT / hour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Audio Interface</th>
+                  <td>Focusrite Scarlett 4i4</td>
+                  <td>4 inputs, low latency, clean preamps</td>
+                  <td>Small bands and vocal overdubs</td>
+                  <td>5 000 KZT / hour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Audio Interface</th>
+                  <td>Universal Audio Apollo Twin</td>
+                  <td>Premium conversion, DSP effects, two Unison preamps</td>
+                  <td>Professional vocal chain</td>
+                  <td>9 000 KZT / hour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Software</th>
+                  <td>Ableton Live Suite</td>
+                  <td>Session view, instruments, sampling and live looping</td>
+                  <td>Beat production and electronic music</td>
+                  <td>4 000 KZT / hour</td>
+                </tr>
+                <tr>
+                  <th scope="row">Software</th>
+                  <td>Logic Pro Vocal Suite</td>
+                  <td>Comping, pitch tools, channel strips and reverbs</td>
+                  <td>Pop vocal editing and mixing</td>
+                  <td>3 500 KZT / hour</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Supporting cards use Flexbox to show package suggestions under the table. -->
+        <div class="gear-packages">
+          <article>
+            <h2>Vocal Starter Pack</h2>
+            <p>Aurora C-87, Scarlett 4i4 and Logic Pro tools for clean singer-songwriter sessions.</p>
+          </article>
+          <article>
+            <h2>Beat Lab Pack</h2>
+            <p>Apollo Twin and Ableton Live for producers who need fast sound design and low latency.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p><strong>Neon Tape Studio</strong> - indie recording workflow project.</p>
+      <p>Fonts: Google Fonts. Framework: Bootstrap 5.3. Code and visuals created from scratch.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
